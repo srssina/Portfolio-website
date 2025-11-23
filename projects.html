@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sina RAHIMIAN - Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .profile-section {
+            flex: 0 0 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #333;
+        }
+
+        .nav-button {
+            background: #232323;
+            border: 2px solid #333333;
+            color: #569cd6;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .nav-button:hover {
+            background: #333333;
+            border-color: #d7ba7d;
+            color: #d7ba7d;
+        }
+
+        .nav-button.active {
+            background: #333333;
+            border-color: #d16969;
+            color: #d16969;
+        }
+
+        .profile-section, .enum-section, .code-section {
+            background: none;
+            color: inherit;
+        }
+
+        .code-section {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .comment {
+            color: #a6e3a1;
+
+        }
+
+        .keyword {
+            color: #569cd6;
+            font-weight: bold;
+        }
+
+        .class-name {
+            color: #4ec9b0;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .boolean {
+            color: #d16969;
+        }
+
+        .enum-title {
+            color: #4ec9b0;
+        }
+
+        .brace {
+            color: #d16969;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #2a2d2e;
+            color: #d4d4d4;
+        }
+
+        .project-link {
+            color: #d7ba7d;
+            border-color: #333333;
+        }
+
+        .project-link:hover {
+            border-color: #d7ba7d;
+            background: rgba(215, 186, 125, 0.1);
+        }
+
+        .enum-section {
+            border-left: 3px solid #333333;
+        }
+
+        .section-break {
+            height: 20px;
+        }
+
+        .project-card {
+            background: rgba(42, 45, 46, 0.3);
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 20px 20px 20px 40px; /* Increased left padding for alignment */
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            margin-left: 0; /* Ensure no offset */
+        }
+        .project-card > div[style*='display:flex'] {
+            margin-left: -20px; /* Pull flex row left to align images and function names */
+        }
+        .method, .method-body {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        .project-title {
+            color: #4ec9b0;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            color: #569cd6;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .function-name {
+            color: #d7ba7d;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .profile-section {
+                flex: none;
+                align-items: center;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .code-section {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <img src="/images/pfp.jpg"  alt="Profile" class="profile-image">
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <a href="#" class="nav-button" onclick="goToHome()" >🏠 HOME</a>
+                <a href="#" class="nav-button active">📁 PROJECTS and INSIGHTS</a>
+                <a href="Sina_Rahimian_CV.pdf" class="nav-button" target="_blank" rel="noopener">📄 CV</a>
+            </div>
+            <!-- Add enum sections and other sidebar content here if needed -->
+        </div>
+
+        <div class="code-section">
+            <div class="comment"># Portfolio of AI/ML projects focused on healthcare applications</div>
+            <div class="comment"># Demonstrating expertise in medical data analysis and predictive modeling</div>
+            <div class="section-break"></div>
+            <div><span class="keyword">class</span> <span class="class-name">Projects</span>:</div>
+            <div class="property">    """Collection of healthcare AI/ML projects"""</div>
+            <div class="brace">    {</div>
+            <div class="project-card">
+
+            <!-- 
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/AIinHealthcare.png" alt="Breast Cancer Detection Showcase" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">breast_cancer_detection</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Advanced CNN model for mammography image analysis with 94% accuracy"</span></div>
+                <div class="method-body">        technologies = [<span class="string">"PyTorch"</span>, <span class="string">"Computer Vision"</span>, <span class="string">"CNN"</span>, <span class="string">"Medical Imaging"</span>]</div>
+                <div class="method-body">        dataset = <span class="string">"15,000+ mammography images"</span></div>
+                <div class="method-body">        accuracy = <span class="number">0.94</span></div>
+                <div class="method-body">        impact = <span class="string">"Early detection system for clinical screening programs"</span></div>
+                <div class="method-body"><a href="#" class="project-link">📂 View Repository</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/mlStanford.png" alt="Drug Discovery Platform Showcase" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">drug_discovery_platform</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"ML pipeline for molecular property prediction and drug-target interaction"</span></div>
+                <div class="method-body">        technologies = [<span class="string">"TensorFlow"</span>, <span class="string">"RDKit"</span>, <span class="string">"Graph Neural Networks"</span>, <span class="string">"Cheminformatics"</span>]</div>
+                <div class="method-body">        features = [</div>
+                <div class="method-body indent-1"><span class="string">"Molecular fingerprint generation"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"ADMET property prediction"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Drug-target affinity scoring"</span></div>
+                <div class="method-body">];</div>
+                <div class="method-body">        status = <span class="string">"Research publication in progress"</span></div>
+                <div class="method-body"><a href="#" class="project-link">📊 Live Demo</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/freecodecamp.png" alt="Medical Chatbot Showcase" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">medical_chatbot</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"NLP-powered healthcare assistant for symptom analysis and triage"</span></div>
+                <div class="method-body">        technologies = [<span class="string">"BERT"</span>, <span class="string">"Transformers"</span>, <span class="string">"NLTK"</span>, <span class="string">"Flask"</span>, <span class="string">"React"</span>]</div>
+                <div class="method-body">        capabilities = [</div>
+                <div class="method-body indent-1"><span class="string">"Medical entity recognition"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Symptom-disease mapping"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Risk assessment scoring"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Multilingual support (EN/FA/DE)"</span></div>
+                <div class="method-body">];</div>
+                <div class="method-body">        users = <span class="number">500+</span> + <span class="string">" beta testers"</span></div>
+                <div class="method-body"><a href="#" class="project-link">🤖 Try Chatbot</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/opencv.png" alt="COVID-19 Predictor Showcase" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">covid19_predictor</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Ensemble model for COVID-19 severity prediction from chest X-rays"</span></div>
+                <div class="method-body">        technologies = [<span class="string">"ResNet"</span>, <span class="string">"DenseNet"</span>, <span class="string">"Ensemble Learning"</span>, <span class="string">"OpenCV"</span>]</div>
+                <div class="method-body">        performance = {</div>
+                <div class="method-body indent-1">"Sensitivity": <span class="number">0.92</span>,</div>
+                <div class="method-body indent-1">"Specificity": <span class="number">0.89</span>,</div>
+                <div class="method-body indent-1">"F1Score": <span class="number">0.91</span></div>
+                <div class="method-body">};</div>
+                <div class="method-body">        publication = <span class="string">"Presented at ICML Healthcare Workshop 2024"</span></div>
+                <div class="method-body"><a href="#" class="project-link">📄 Read Paper</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/SQL.png" alt="Healthcare Data Pipeline Showcase" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">healthcare_data_pipeline</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Scalable ETL pipeline for multi-modal healthcare data integration"</span></div>
+                <div class="method-body">        technologies = [<span class="string">"Apache Spark"</span>, <span class="string">"Docker"</span>, <span class="string">"PostgreSQL"</span>, <span class="string">"Apache Airflow"</span>]</div>
+                <div class="method-body">        data_sources = [</div>
+                <div class="method-body indent-1"><span class="string">"Electronic Health Records"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Medical imaging (DICOM)"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Laboratory results"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Wearable device data"</span></div>
+                <div class="method-body">];</div>
+                <div class="method-body">        processing_speed = <span class="string">"10GB/hour with real-time streaming"</span></div>
+                <div class="method-body"><a href="#" class="project-link">⚙️ Architecture</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+            -->
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/medical-support_15560019.png" alt="Healthcare Assistant Dashboard" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">healthcare_assistant_dashboard</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"A platform designed to help clinicians, nurses, and patients with medical image analysis, clinical data retrieval, and general healthcare support. The system leverages advanced local-hosted multimodal language models and retrieval-augmented generation (RAG) to provide accurate, context-aware answers and reports."</span></div>
+                <div class="method-body">        technologies = [<span class="string">"Foundation Models"</span>, <span class="string">"RAG"</span>, <span class="string">"Medical Image Analysis"</span>, <span class="string">"Clinical Data Retrieval"</span>]</div>
+                <div class="method-body"><a href="https://github.com/srssina/MedGemma-Powered-Medical-Assistant" class="project-link">🗃️ Github Repository</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/tensorphilia.png" alt="tensorphilia logo" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">Tensorphilia projects</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Educational guided projects for begineer learners with the help of other collaborates"</span></div>
+                <div class="method-body">        Methodologies = [<span class="string">"Classical machine learning "</span>, <span class="string">"Principal Component Analysis"</span>, <span class="string">"Exploratory Data Analysis "</span>]</div>
+                <div class="method-body">main projects= [</div>
+                <div class="method-body indent-1"><span class="string">"Heart-disease-prediction"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"diamonds-price-prediction"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Diabetes-prediction"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"NAFLD detection"</span></div>
+                <div class="method-body">];</div>
+                <div class="method-body"><a href="https://github.com/tensorphilia/projects" class="project-link">🗃️ Github Repository</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/icons8-hospital-48 (1).png" alt="Healthcare System Showcase" style="width:48px;height: 48px;object-fit:cover;border-radius:6px;">
+                    
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">healthcare_system</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Dual-purpose academic project integrating database design and software engineering principles."</span></div>
+                <div class="method-body">        features = [</div>
+                <div class="method-body indent-1"><span class="string">"Transforms academic ER model into functional SQL code for hospital management"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Multi-role operations: admin, doctor, patient, etc."</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Modules: EHR, billing, pharmacy, AI-powered registration"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Detailed with ER diagrams, DFDs, and a data dictionary"</span>,</div>
+                <div class="method-body indent-1"><span class="string">"Showcases full-stack healthcare system planning"</span></div>
+                <div class="method-body">        ]</div>
+                <div class="method-body">        stack = [<span class="string">"SQL"</span>, <span class="string">"Database Design"</span>, <span class="string">"Software Engineering"</span>, <span class="string">"AI"</span>]</div>
+                <div class="method-body"><a href="https://github.com/srssina/Healthcaresystem" class="project-link">🗃️ Github Repository</a>,<a href="https://medium.com/@SinaRahimian/healthcare-registration-in-the-age-of-ai-a-data-flow-overview-938eaa0a134e" class="project-link">📄 Article on Medium</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+            <div class="project-card">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <img src="images/oncology.png" alt="Metastatic Cancer Detection" style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
+                    <div class="method" style="margin:0;">    <span class="keyword">def</span> <span class="function-name">metastatic_cancer_detection</span>():</div>
+                </div>
+                <div class="method-body">        description = <span class="string">"Deep learning for identifying metastatic cancer in pathology image patches using PyTorch."</span></div>
+                <div class="method-body">        Methodologies  = [<span class="string">"pre-trained CNNs and transfer learning"</span>]</div>
+                <div class="method-body">        dataset = <span class="string">"PCAM (Positive Cell Adenocarcinoma Margin) images"</span></div>
+                <div class="method-body">        highlights = [<span class="string">"Accurate identification of metastatic cancer in digital pathology scans"</span>, <span class="string">"Computer vision techniques for medical imaging"</span>, <span class="string">"Image classification with PyTorch"</span>, <span class="string">"Transfer learning with limited data"</span>, <span class="string">"Data loading, augmentation, and normalization"</span>]</div>
+                <div class="method-body"><a href="#" class="project-link">🔬 Project Details</a></div>
+                <div class="method"><span class="brace">}</span></div>
+            </div>
+
+
+
+            <!-- <div class="section-break"></div>
+            
+            <div class="comment">/// Research Publications & Achievements</div>
+            <div class="method"><span class="keyword">private readonly</span> Achievement[] _Publications = new[] {</div>
+            <div class="method-body"><span class="string">"AI in Medical Imaging: A Comprehensive Review (Under Review - Nature Medicine)"</span>,</div>
+            <div class="method-body"><span class="string">"Few-Shot Learning for Rare Disease Classification (MICCAI 2024)"</span>,</div>
+            <div class="method-body"><span class="string">"Ethical AI in Healthcare: Framework for Responsible Implementation"</span></div>
+            <div class="method">};</div>
+
+            <div><span class="brace">}</span></div> -->
+        </div>
+    </div>
+
+    <script>
+        function goToHome() {
+            //alert('Navigate to main portfolio page (main.html)');
+            // In a real implementation, this would navigate to the main page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sina RAHIMIAN - AI/ML Research Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .profile-section {
+            flex: 0 0 250px;
+            min-width: 250px;
+            max-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #333;
+        }
+
+        .nav-button {
+            background: #232323;
+            border: 2px solid #333333;
+            color: #569cd6;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .nav-button:hover {
+            background: #333333;
+            border-color: #d7ba7d;
+            color: #d7ba7d;
+        }
+
+        .nav-button.active {
+            background: #333333;
+            border-color: #d16969;
+            color: #d16969;
+        }
+
+        .code-section {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .profile-section, .enum-section, .code-section {
+            background: none;
+            color: inherit;
+        }
+
+        .comment {
+            color: #a6e3a1;
+        }
+
+        .keyword {
+            color: #569cd6;
+            font-weight: bold;
+        }
+
+        .class-name {
+            color: #4ec9b0;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .boolean {
+            color: #d16969;
+        }
+
+        .enum-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 3px solid #333333;
+        }
+
+        .enum-title {
+            color: #4ec9b0;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .enum-items {
+            margin-left: 20px;
+            list-style: none;
+        }
+
+        .enum-items li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .enum-items li:before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            background: #a0a0a0;
+            border-radius: 50%;
+        }
+
+        .brace {
+            color: #d16969;
+            font-weight: bold;
+        }
+
+        .property {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .method {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .method-body {
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        .indent-1 { margin-left: 20px; }
+        .indent-2 { margin-left: 40px; }
+        .indent-3 { margin-left: 60px; }
+
+        .highlight {
+            background: #2a2d2e;
+            color: #d4d4d4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .project-link {
+            color: #d7ba7d;
+            border-color: #333333;
+        }
+
+        .project-link:hover {
+            border-color: #d7ba7d;
+            background: rgba(215, 186, 125, 0.1);
+        }
+
+        .section-break {
+            height: 20px;
+        }
+
+        .function-name {
+            color: #d7ba7d;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .profile-section {
+                flex: none;
+                align-items: center;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .code-section {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container" role="main">
+        <nav class="profile-section" aria-label="Sidebar Navigation">
+            <img src="images/pfp.jpg" alt="Profile photo of Sina Rahimian" class="profile-image">
+
+            
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <a href="#" class="nav-button active" tabindex="0">🏠 HOME</a>
+                <a href="#" class="nav-button" onclick="goToProjects()" tabindex="0">📁 PROJECTS and INSIGHTS</a>
+                <a href="Sina_Rahimian_CV.pdf" class="nav-button" target="_blank" rel="noopener">📄 CV</a>
+            </div>
+            
+
+            <div class="enum-section">
+                <div class="enum-title">DOMAINS()</div>
+                <ul class="enum-items">
+                    <li>Healthcare AI,</li>
+                    <li>Medical Imaging,</li>
+                    <li>Predictive Analytics,</li>
+                    <li>Deep Learning,</li>
+                    <li>Computer Vision,</li>
+                    <li>Data Mining</li>
+                    <li>Transform learning</li> 
+                </ul>
+            </div>
+
+            <div class="enum-section">
+                <div class="enum-title">TOOLS & FRAMEWORKS()</div>
+                <ul class="enum-items">
+                    <li>Python, SQL,</li>
+                    <li>PyTorch, Scikit Learn,</li>
+                    <li>Random Forest, SVM,</li>
+                    <li>KNN, XGBoost,</li>
+                    <li>ANN, CNN,</li>
+                    <li>Git, GitHub,</li>
+                    <li>Linux Ubuntu, Docker,</li>
+                    <li>Virtual Machines,</li>
+                    <li>Streamlit</li>
+                </ul>
+            </div>
+
+
+
+
+
+
+        </nav>
+        <section class="code-section" aria-label="Main Content">
+            <div class="comment"># Passionate Computer Science student specializing in AI and healthcare.</div>
+            <div class="comment"># Seeking opportunities to transform medical research through machine learning.</div>
+            <div class="comment"># Dedicated to advancing AI applications in medical diagnostics and treatment.</div>
+            
+            <div class="section-break"></div>
+            
+            <div><span class="keyword">class</span> <span class="class-name">Information</span>:</div>
+            <div class="property">    NAME: str = <span class="string">"Sina Rahimian"</span></div>
+            <div class="property">    TITLE: str = <span class="string">"AI/ML Research Assistant"</span></div>
+            <div class="property">    EMAIL: str = <span class="string">"sina82rahimian@gmail.com"</span></div>
+            <div class="property">    PHONE: str = <span class="string">"(+98)911 389 8468"</span></div>
+            <div class="property">    Linkedin: str = <span class="string">linkedin.com/in/sinarahimian</span></div>
+            <div class="property">    Github: str = <span class="string">github.com/srssina</span></div>
+            
+            <div class="property">    LOCATION: list[str] = [<span class="string">"Tehran"</span>, <span class="string">"Iran"</span>]</div>
+            <div class="property">    SPECIALIZATION: str = <span class="string">"Healthcare AI"</span></div>
+            <div class="property">    GPA: float = <span class="number">16.25/20</span></div>
+
+            <div class="section-break"></div>
+
+            <p align="center">
+                 <a>
+                <img src="https://skillicons.dev/icons?i=anaconda,bash,debian,docker,py,pytorch,raspberrypi,sklearn,ubuntu,tensorflow,vscode" />
+                </a>
+            </p>
+
+
+            <!-- <div><span class="keyword">class</span> <span class="class-name">Education</span>:</div>
+            <div class="method">    @staticmethod</div>
+            <div class="method">    <span class="keyword">def</span> <span class="function-name">bsc_computer_science</span>():</div>
+            <div class="method-body">        institution = <span class="string">"Islamic Azad University Science and Research Branch"</span></div>
+            <div class="method-body">        location = <span class="string">"Tehran, Iran"</span></div>
+            <div class="method-body">        expected = <span class="string">"08/2025"</span></div>
+            <div class="method-body">        gpa = <span class="number">16.25/20</span></div>
+            <div class="method-body">        focus = <span class="string">"AI & Machine Learning"</span></div>
+
+
+
+            <div class="section-break"></div>
+
+            <div><span class="keyword">class</span> <span class="class-name">Experiences</span>:</div>
+            <div class="method">    @staticmethod</div>
+            <div class="method">    <span class="keyword">def</span> <span class="function-name">medx_contributor</span>():</div>
+            <div class="method-body">        duration = {"start": <span class="string">"09/2024"</span>, "end": <span class="string">"Present"</span>}</div>
+            <div class="method-body">        location = <span class="string">"Tehran, Iran"</span></div>
+            <div class="method-body">        role = <span class="string">"Contributor"</span></div>
+            <div class="method-body">        description = <span class="string">"Integrating medical expertise with cutting-edge AI technology for future clinicians"</span></div>
+
+            <div class="method">    @staticmethod</div>
+            <div class="method">    <span class="keyword">def</span> <span class="function-name">tensorphilia_board_member</span>():</div>
+            <div class="method-body">        duration = {"start": <span class="string">"04/2024"</span>, "end": <span class="string">"04/2025"</span>}</div>
+            <div class="method-body">        role = <span class="string">"Co-founder & Board Member"</span></div>
+            <div class="method-body">        community = <span class="number">800</span> + <span class="string">" active members on Telegram"</span></div>
+            <div class="method-body">        reading_group = <span class="number">50</span> + <span class="string">" collaborative Iranian students"</span>
+            
+            <div class="method-body">        <span class="comment"># Facilitated weekly online reading group for machine learning textbooks,</span></div>
+            <div class="method-body">        <span class="comment"># fostering collaborative learning environment and improving understanding of</span></div>
+            <div class="method-body">        <span class="comment"># complex technical concepts. Led online learning community with increased</span></div>
+            <div class="method-body">        <span class="comment"># participation and engagement.</span></div>
+
+            <div class="method">    @staticmethod</div>
+            <div class="method">    <span class="keyword">def</span> <span class="function-name">research_assistant</span>():</div>
+            <div class="method-body">        duration = {"start": <span class="string">"07/2024"</span>, "end": <span class="string">"01/2025"</span>}</div>
+            <div class="method-body">        institution = <span class="string">"Islamic Azad University Science and Research Branch"</span></div>
+            <div class="method-body">        supervisor = <span class="string">"Dr. Amineh Amini"</span></div>
+            <div class="method-body">        projects = [</div>
+            <div class="method-body indent-1"><span class="string">"AI Integration in Healthcare Registration"</span>,</div>
+            <div class="method-body indent-1"><span class="string">"Few-Shot Learning Methodologies"</span></div>
+            <div class="method-body">        ]</div>
+
+            <div class="method">    @staticmethod</div>
+            <div class="method">    <span class="keyword">def</span> <span class="function-name">teaching_assistant</span>():</div>
+            <div class="method-body">        duration = {"start": <span class="string">"02/2024"</span>, "end": <span class="string">"07/2024"</span>}</div>
+            <div class="method-body">        institution = <span class="string">"Islamic Azad University Science and Research Branch"</span></div>
+            <div class="method-body">        course = <span class="string">"Artificial Intelligence"</span></div>
+            <div class="method-body">        supervisor = <span class="string">"Dr. Kazem Kani"</span></div>
+            <div class="method-body">        students = <span class="number">50</span> + <span class="string">" undergraduate students"</span></div>
+            <div class="method-body">        satisfaction = <span class="number">95</span> + <span class="string">"% average rating"</span></div>
+            <div class="method-body">        <span class="comment"># Created targeted educational resources bridging theoretical concepts</span></div>
+            <div class="method-body">        <span class="comment"># with practical programming skills. Guided students through core AI</span></div>
+            <div class="method-body">        <span class="comment"># concepts from Russell's 'Artificial Intelligence: A Modern Approach'.</span></div>
+
+             <div class="method"><span class="keyword">public void</span> CognizantAI_Simulation()</div>
+            <div class="method"><span class="brace">{</span></div>
+            <div class="method-body"><span class="keyword">var</span> _Duration = Range(start: <span class="string">"09/2023"</span>, end: <span class="string">"01/2024"</span>);</div>
+            <div class="method-body"><span class="keyword">var</span> _Platform = <span class="string">"Forage (Self-paced program)"</span>;</div>
+            <div class="method-body"><span class="keyword">var</span> _Client = <span class="string">"Gala Groceries"</span>;</div>
+            <div class="method-body"><span class="keyword">var</span> _Skills = new[] {</div>
+            <div class="method-body indent-1"><span class="string">"Exploratory Data Analysis"</span>,</div>
+            <div class="method-body indent-1"><span class="string">"Python & Google Colab"</span>,</div>
+            <div class="method-body indent-1"><span class="string">"Machine Learning Engineering"</span>,</div>
+            <div class="method-body indent-1"><span class="string">"Business Presentation"</span></div>
+            <div class="method-body">};</div>
+            <div class="method"><span class="brace">}</span></div> 
+            <div><span class="brace">}</span></div> --> 
+        </section>
+    </main>
+    <script>
+        function goToProjects() {
+            window.location.href = 'projects.html';
+        }
+
+    </script>
+</body>
+</html>
