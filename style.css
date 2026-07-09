@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+.profile-section {
+    flex: 0 0 250px;
+    min-width: 250px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+.nav-button {
+    background: #232323;
+    border: 2px solid #333333;
+    color: #569cd6;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.nav-button:hover {
+    background: #333333;
+    border-color: #d7ba7d;
+    color: #d7ba7d;
+}
+
+.nav-button.active {
+    background: #333333;
+    border-color: #d16969;
+    color: #d16969;
+}
+
+.code-section {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.profile-section, .enum-section, .code-section {
+    background: none;
+    color: inherit;
+}
+
+.comment {
+    color: #a6e3a1;
+}
+
+.keyword {
+    color: #569cd6;
+    font-weight: bold;
+}
+
+.class-name {
+    color: #4ec9b0;
+    font-weight: bold;
+}
+
+.string {
+    color: #ce9178;
+}
+
+.number {
+    color: #b5cea8;
+}
+
+.boolean {
+    color: #d16969;
+}
+
+.enum-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 3px solid #333333;
+}
+
+.enum-title {
+    color: #4ec9b0;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.enum-items {
+    margin-left: 20px;
+    list-style: none;
+}
+
+.enum-items li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.enum-items li:before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: #a0a0a0;
+    border-radius: 50%;
+}
+
+.brace {
+    color: #d16969;
+    font-weight: bold;
+}
+
+.property {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.method {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.method-body {
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.indent-1 { margin-left: 20px; }
+.indent-2 { margin-left: 40px; }
+.indent-3 { margin-left: 60px; }
+
+.highlight {
+    background: #2a2d2e;
+    color: #d4d4d4;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.project-link {
+    color: #d7ba7d;
+    border-color: #333333;
+}
+
+.project-link:hover {
+    border-color: #d7ba7d;
+    background: rgba(215, 186, 125, 0.1);
+}
+
+.section-break {
+    height: 20px;
+}
+
+.function-name {
+    color: #d7ba7d;
+    font-weight: bold;
+}
+
+/* project cards reset the .method/.method-body indent set above -
+   scoped selector wins on specificity, no !important needed */
+.project-card {
+    background: rgba(42, 45, 46, 0.3);
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 20px 20px 20px 40px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.project-card > div[style*='display:flex'] {
+    margin-left: -20px; /* align image + function name with card padding */
+}
+
+.project-card .method,
+.project-card .method-body {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .profile-section {
+        flex: none;
+        align-items: center;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .code-section {
+        padding-left: 0;
+    }
+}
